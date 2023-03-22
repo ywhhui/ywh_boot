@@ -8,10 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * 注意点总结
+ * 1.需要注意单表的性能 索引问题
+ * 2.需要注意单表的批量操作 并发时候要考虑
+ * 3.需要注意 @Transactional 事务控制 每个表操作 都要保证原子性
+ */
 @Service
+@Transactional
 public class MybatisPlusServiceImpl implements MybatisPlusService {
 
     private static final Logger logger = LoggerFactory.getLogger(MybatisPlusServiceImpl.class);
